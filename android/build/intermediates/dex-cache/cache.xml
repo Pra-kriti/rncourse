@@ -190,5 +190,14 @@
         sha1="72128af126ddd7d6252da9357fe560d3abcdfb0c">
         <dex dex="D:\react-native\rncourse\android\app\build\intermediates\pre-dexed\debug\com.facebook.fresco-imagepipeline-base-1.3.0_0a52c58a44cd8ef65c861c4abcbab06522b23665.jar" />
     </item>
+    <item
+        is-multidex="false"
+        jar="D:\react-native\rncourse\android\app\build\intermediates\exploded-aar\rncourse\react-native-vector-icons\unspecified\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="279750fed3c920d06351dbf32889c1b48203c7ad">
+        <dex dex="D:\react-native\rncourse\android\app\build\intermediates\pre-dexed\debug\rncourse-react-native-vector-icons-unspecified_958b3e57ea0f22fb7bded3bd3f87627ad63599de.jar" />
+    </item>
 
 </items>
