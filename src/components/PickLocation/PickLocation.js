@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import { View, Button, StyleSheet, Text} from 'react-native'
+import React, { Component } from "react";
+import { View, Image, Button, StyleSheet, Text } from "react-native";
 
 class PickLocation extends Component {
   render() {
@@ -9,7 +9,7 @@ class PickLocation extends Component {
           <Text>Map</Text>
         </View>
         <View style={styles.button}>
-          <Button title="Locate me" onPress={() => { alert('Pick Location') }} />
+          <Button title="Locate Me" onPress={() => alert('Pick Location!')} />
         </View>
       </View>
     );
@@ -28,9 +28,9 @@ const styles = StyleSheet.create({
     width: "80%",
     height: 150
   },
-  button:{
+  button: {
     margin: 8
   }
-})
+});
 
 export default PickLocation;

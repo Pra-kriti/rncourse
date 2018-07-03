@@ -1,32 +1,36 @@
-import { ADD_PLACE, DELETE_PLACE } from '../actions/actionTypes'
+import {
+  ADD_PLACE,
+  DELETE_PLACE
+} from "../actions/actionTypes";
 
-const initalState = {
+const initialState = {
   places: []
-}
+};
 
-const reducer = (state = initalState, action) => {
+const reducer = (state = initialState, action) => {
   switch (action.type) {
     case ADD_PLACE:
       return {
         ...state,
         places: state.places.concat({
-          key: Math.random(), 
+          key: Math.random(),
           name: action.placeName,
           image: {
-            uri: "https://www.pandotrip.com/wp-content/uploads/2016/02/Rio3-1-980x699.jpg"
+            uri:
+              "https://c1.staticflickr.com/5/4096/4744241983_34023bf303_b.jpg"
           }
         })
-      }
+      };
     case DELETE_PLACE:
       return {
         ...state,
-        places: state.places.filter(place=> {
-          return place.key !== action.placeKey
+        places: state.places.filter(place => {
+          return place.key !== action.placeKey;
         })
-      }
+      };
     default:
       return state;
   }
-}
+};
 
-export default reducer
+export default reducer;

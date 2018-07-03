@@ -1,44 +1,43 @@
-import React, { Component } from 'react';
-import { View, Text } from 'react-native'
-import { connect } from 'react-redux'
+import React, { Component } from "react";
+import { View, Text } from "react-native";
+import { connect } from "react-redux";
 
-import PlaceList from '../../components/PlaceList/PlaceList'
+import PlaceList from "../../components/PlaceList/PlaceList";
 
-class FindPlace extends Component {
+class FindPlaceScreen extends Component {
   constructor(props) {
-    super(props)
-    this.props.navigator.setOnNavigatorEvent(this.onNavigatorEvent)
+    super(props);
+    this.props.navigator.setOnNavigatorEvent(this.onNavigatorEvent);
   }
 
-  onNavigatorEvent = (event) => {
-    if(event.type==="NavBarButtonPress"){
-      if(event.id === "sideDrawerToggle"){
+  onNavigatorEvent = event => {
+    if (event.type === "NavBarButtonPress") {
+      if (event.id === "sideDrawerToggle") {
         this.props.navigator.toggleDrawer({
           side: "left"
-        })
+        });
       }
     }
-  }
-  
-  itemSelectedHandler = (key) => {
-    const selPlace = this.props.places.find(place=> {
-      return place.key === key
-    })
-    
+  };
+
+  itemSelectedHandler = key => {
+    const selPlace = this.props.places.find(place => {
+      return place.key === key;
+    });
     this.props.navigator.push({
       screen: "awesome-places.PlaceDetailScreen",
-      title: selPlace.name ,
+      title: selPlace.name,
       passProps: {
         selectedPlace: selPlace
       }
-    })
-  }
+    });
+  };
 
   render() {
     return (
       <View>
-        <PlaceList 
-          places={this.props.places} 
+        <PlaceList
+          places={this.props.places}
           onItemSelected={this.itemSelectedHandler}
         />
       </View>
@@ -46,10 +45,10 @@ class FindPlace extends Component {
   }
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
   return {
     places: state.places.places
-  }
-}
+  };
+};
 
-export default connect(mapStateToProps)(FindPlace);
+export default connect(mapStateToProps)(FindPlaceScreen);

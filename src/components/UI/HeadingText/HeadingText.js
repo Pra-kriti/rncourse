@@ -1,22 +1,17 @@
-import React from 'react';
-import { Text, StyleSheet } from 'react-native'
+import React from "react";
+import { Text, StyleSheet } from "react-native";
 
-const HeadingText = (props) => {
-  return (
-    <Text 
-      {...props} 
-      style={[styles.textHeading, props.style]}
-    >
-      {props.children}
-    </Text>
-  );
-};
+const headingText = props => (
+  <Text {...props} style={[styles.textHeading, props.style]}>
+    {props.children}
+  </Text>
+);
 
 const styles = StyleSheet.create({
-  textHeading:{
+  textHeading: {
     fontSize: 28,
-    fontWeight: "600"
-  },
-})
+    fontWeight: "bold"
+  }
+});
 
-export default HeadingText;
+export default headingText;

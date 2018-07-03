@@ -1,17 +1,15 @@
 import React from 'react';
-import { Text, StyleSheet } from 'react-native'
+import { Text, StyleSheet } from 'react-native';
 
-const MainText = (props) => {
-  return (
+const mainText = props => (
     <Text style={styles.mainText}>{props.children}</Text>
-  );
-};
+);
 
 const styles = StyleSheet.create({
-  mainText:{
-    color: "black",
-    backgroundColor: "transparent"
-  }
-})
+    mainText: {
+        color: "black",
+        backgroundColor: "transparent"
+    }
+});
 
-export default MainText;
+export default mainText;

@@ -1,27 +1,28 @@
-import React from 'react';
-import { StyleSheet, FlatList } from 'react-native'
-import ListItem from '../ListItem/ListItem';
+import React from "react";
+import { StyleSheet, FlatList } from "react-native";
 
-const PlaceList = (props) => {
+import ListItem from "../ListItem/ListItem";
+
+const placeList = props => {
   return (
-    <FlatList 
+    <FlatList
       style={styles.listContainer}
       data={props.places}
       renderItem={(info) => (
-        <ListItem 
-          placeName={info.item.name} 
+        <ListItem
+          placeName={info.item.name}
           placeImage={info.item.image}
-          onItemPressed={() => props.onItemSelected(info.item.key)} 
+          onItemPressed={() => props.onItemSelected(info.item.key)}
         />
       )}
     />
-  )
-}
+  );
+};
 
 const styles = StyleSheet.create({
   listContainer: {
     width: "100%"
   }
-})
+});
 
-export default PlaceList;
+export default placeList;
