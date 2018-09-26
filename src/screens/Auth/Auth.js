@@ -59,12 +59,12 @@ class AuthScreen extends Component {
     Dimensions.addEventListener("change", this.updateStyles);
   }
 
-  componentDidMount(){
-    this.props.onAutoSignIn()
-  }
-
   componentWillUnmount() {
     Dimensions.removeEventListener("change", this.updateStyles);
+  }
+
+  componentDidMount() {
+    this.props.onAutoSignIn();
   }
 
   switchAuthModeHandler = () => {
@@ -143,18 +143,15 @@ class AuthScreen extends Component {
         color="#29aaf4"
         onPress={this.authHandler}
         disabled={
-          !this.state.controls.confirmPassword.valid && this.state.authMode === "signup" ||
+          (!this.state.controls.confirmPassword.valid &&
+            this.state.authMode === "signup") ||
           !this.state.controls.email.valid ||
           !this.state.controls.password.valid
         }
       >
         Submit
       </ButtonWithBackground>
-    )
-
-    if(this.isLoading) {
-      submitButton= <ActivityIndicator />
-    }
+    );
 
     if (this.state.viewMode === "portrait") {
       headingText = (
@@ -183,6 +180,9 @@ class AuthScreen extends Component {
           />
         </View>
       );
+    }
+    if (this.props.isLoading) {
+      submitButton = <ActivityIndicator />;
     }
     return (
       <ImageBackground source={backgroundImage} style={styles.backgroundImage}>
@@ -277,11 +277,11 @@ const styles = StyleSheet.create({
   }
 });
 
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
   return {
     isLoading: state.ui.isLoading
-  }
-}
+  };
+};
 
 const mapDispatchToProps = dispatch => {
   return {
